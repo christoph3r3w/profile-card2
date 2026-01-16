@@ -11,14 +11,22 @@
             <img class="profile_bg" src="<%= avatar %>" alt="profile background image" >
             <div><img src="<%= avatar %>" alt="avatar"></div>
             <h2><%= name %></h2>
-            <h3><%= surname  %></h3>
+            <%# if (surname.length > 0) { %>
+                <h3><%# surname %></h3>
+            <%#  } %> 
+           
+              
         </div>
     
         <div class="info">
             <ul>
                 <li><a href=<%= website %>>Github</a></li>
-                
-                <li><legend> squad-id</legend><p><%= squad_id %></p></li>
+                <%# if (squad_id) { %>
+                    <li>
+                        <legend> squad-id</legend>
+                        <p><%#= squad_id %></p>
+                    </li>                 
+                <%# } %>
             </ul>
         </div>
    
