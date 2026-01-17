@@ -49,11 +49,11 @@ html {
 
   /* gradients */
   --gradient-b: linear-gradient(0deg,
-                              var(--primary-bl) 37%,
-                            hsl(222deg 70% 40%) 87%,
-                            hsl(221deg 69% 49%) 98%,
-                            hsl(221deg 69% 49%) 98%,
-                            hsl(221deg 70% 75%) 100%
+    var(--primary-bl) 37%,
+    hsl(222deg 70% 40%) 87%,
+    hsl(221deg 69% 49%) 98%,
+    hsl(221deg 69% 49%) 98%,
+    hsl(221deg 70% 75%) 100%
   );
   --gradient-light-b:linear-gradient(
     0deg,
@@ -72,8 +72,8 @@ html {
     hsl(120deg 33% 74%) 100%
     );
   --gradient-w-1: linear-gradient(38deg, 
-                              rgba(255,255,255,1) 47%, 
-                              rgba(255,255,255,0) 100%);
+    rgba(255,255,255,1) 47%, 
+    rgba(255,255,255,0) 100%);
   --gradient-w-2: linear-gradient(90deg, 
   rgba(255,255,255,0.6951155462184874) 0%, 
   rgba(255,255,255,0.2777485994397759) 33%, 
@@ -83,7 +83,6 @@ html {
   /* transition */
   --transiton-global: 1s ease-in-out .8s;
  
-
 }
 
 /* darkmode things */
@@ -117,16 +116,16 @@ html {
   
   /* gradients */
   --gradient-b: linear-gradient(0deg,
-                            hsl(221, 72%, 10%) 37%,
-                            hsl(222, 70%, 6%) 87%,
-                            hsla(223, 68%, 6%, 0.69) 98%,
-                            hsla(221, 47%, 66%, 0.6) 100%
+    hsl(221, 72%, 10%) 37%,
+    hsl(222, 70%, 6%) 87%,
+    hsla(223, 68%, 6%, 0.69) 98%,
+    hsla(221, 47%, 66%, 0.6) 100%
   );
   --gradient-b: linear-gradient(0deg,
-                            #0C111C 37%,
-                            hsl(222, 70%, 6%) 87%,
-                            #0C111C 98%,
-                            hsla(221, 47%, 66%, 0.6) 100%
+    #0C111C 37%,
+    hsl(222, 70%, 6%) 87%,
+    #0C111C 98%,
+    hsla(221, 47%, 66%, 0.6) 100%
   );
   --gradient-light-b: linear-gradient(0deg,
   #0C111C 37%,
@@ -250,7 +249,6 @@ body .screen:has(:hover,:focus,:active) {
   }
 
   #start_menu{
-
     margin-bottom: 4.9cqh;
     height: 60cqh;
     width: 28cqw;
@@ -263,7 +261,6 @@ body .screen:has(:hover,:focus,:active) {
     width: 50cqi;
     top: 3rem;
     right: 3rem;
-    
   }
 
   /* .desktop_items li:nth-of-type(5){width: 100%;scale:1; button{width: max-content;img{width: 5cqi;transition: 1s 1s;}}} */
@@ -952,6 +949,8 @@ body .screen:has(:hover,:focus,:active) {
       filter: drop-shadow(0px 1px 2px #0C111C);
     }
   }
+
+
   nav .bar{
     position: relative;
     width: 2rem;
@@ -960,6 +959,7 @@ body .screen:has(:hover,:focus,:active) {
     /* background-color: var(--primary-bl); */
     background-image: var(--gradient-b); 
   }
+
   .extra_icons{
     background-color: var(--tertiary-bl);
     background-image: var(--gradient-light-b) ;
@@ -972,9 +972,8 @@ body .screen:has(:hover,:focus,:active) {
       display: flex;
       flex-direction: row;
       
-
-      
       li{
+        position: relative;
         flex-grow: 1;
         height: 100%;
         padding-inline: .5rem;
@@ -984,9 +983,48 @@ body .screen:has(:hover,:focus,:active) {
       li:nth-last-of-type(1){
         color: var(--base-Text-b);
       }
+
+      li button{
+        width: 20px;
+      }
+
+      /* li:has(:is(button,a)) :is(button,a)::after {} */
+
+
+      li:has(:is(button,a):is(:hover,:focus)) :is(button,a)::after {
+        content:attr(context);
+        text-wrap: nowrap;
+        text-wrap-style:pretty ;
+        font-size: .9rem;
+        color: var(--base-Text-b);
+        position: absolute;
+        bottom: 5cqh;
+        left: -25%;
+        min-width: calc-size(fit-content, size + 2cqw);
+        /* width: auto; */
+        height: fit-content;
+        max-height: 3rem;
+        padding:.5rem;
+        background-color: var(--primary-be);
+        border-radius: 7px;
+        border: 1.5px solid #000000;
+        opacity: 1;
+        transition: opacity 100ms ease-in-out 70ms;
+
+        @starting-style{
+          opacity: 0;
+        }
+      }
+
+      li:nth-of-type(2):has(:is(button,a)) :is(button,a)::after{
+        left: auto;
+        right: 25%;
+        text-wrap: wrap;
+        min-height: 100px;
+        width: 205px ;
+      }
     }
   }
-
 
 }
 
